@@ -1,29 +1,26 @@
-
 using UnityEngine;
 
-
-public class FirstScript : MonoBehaviour
+public class SecondScript : MonoBehaviour
 {
-    public float speed = 0.01f;
+    float speed = 0.01f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        speed = UnityEngine.Random.Range(0.01f, 0.3f);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPosition = transform.position;
-        newPosition.x += speed;
+        Vector2 newPosition = transform.position;
+        newPosition.y += speed;
         transform.position = newPosition;
 
         //check if position.x < 0 or positio.x > width of the screen
         //Y: multiply speed by -1
         Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
-        if (screenPos.x < 0 || screenPos.x > Screen.width) 
+        if (screenPos.y < 0 || screenPos.y > Screen.height)
         {
             speed = speed * -1;
         }
